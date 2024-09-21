@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOKESH E - AI & ML Engineer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+            --card-bg: #ffffff;
+            --transition: all 0.3s ease;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+        }
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: #fff;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .profile-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--accent-color);
+            object-fit: cover;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .profile-image:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .tagline {
+            font-size: 1.2rem;
+            color: #ecf0f1;
+            margin-bottom: 1rem;
+        }
+        .contact-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .contact-info a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        .contact-info i {
+            margin-right: 0.5rem;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        section {
+            flex: 1 1 calc(50% - 1rem);
+            min-width: 300px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.5s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 80%);
+            transform: rotate(45deg);
+            transition: var(--transition);
+            opacity: 0;
+        }
+        section:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+        section:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        section:hover h2::after {
+            width: 100%;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+        .skill {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .skill:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px) rotate(3deg);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: var(--transition);
+            border: 1px solid var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .project-card:hover {
+            transform: translateY(-5px) rotateY(5deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .project-card h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+        .project-card p {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            flex-grow: 1;
+        }
+        .project-card a {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+        .project-card a:hover {
+            color: var(--accent-color);
+        }
+        .education-item, .experience-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--primary-color);
+            transition: var(--transition);
+        }
+        .education-item:last-child, .experience-item:last-child {
+            border-bottom: none;
+        }
+        .education-item:hover, .experience-item:hover {
+            transform: translateX(10px);
+        }
+        .extra-activities {
+            list-style-type: none;
+        }
+        .extra-activities li {
+            margin-bottom: 0.5rem;
+            padding-left: 20px;
+            position: relative;
+            transition: var(--transition);
+        }
+        .extra-activities li::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        .extra-activities li:hover {
+            transform: translateX(5px);
+        }
+        .extra-activities li:hover::before {
+            color: var(--accent-color);
+        }
+        footer {
+            background: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-image {
+                margin-bottom: 1rem;
+            }
+            main {
+                flex-direction: column;
+            }
+            section {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation" id="backgroundAnimation"></div>
+
+    <header>
+        <div class="container header-content">
+            <div class="profile-info">
+                <h1>LOKESH E</h1>
+                <p class="tagline">Aspiring Machine Learning and Deep Learning Engineer</p>
+                <div class="contact-info">
+                    <a href="mailto:lokeshe0912@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="tel:7661081043"><i class="fas fa-phone"></i> Call</a>
+                    <a href="https://www.linkedin.com/in/lokesh-e-60a583201" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://aicraftalchemy.github.io" target="_blank"><i class="fas fa-globe"></i>Website</a>
+                </div>
+            </div>
+            <img src="static/LokeshE.jpg" alt="Lokesh E" class="profile-image">
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Objective</h2>
+            <p>Eager to showcase and apply advanced AI skills in Machine Learning and Deep Learning. Seeking a dynamic platform to drive innovative solutions and make an impactful contribution.</p>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <div class="skills">
+                <h3>Languages</h3>
+                <span class="skill">Python</span>
+                <span class="skill">Java</span>
+                <span class="skill">C</span>
+            </div>
+            <div class="skills">
+                <h3>Frameworks</h3>
+                <span class="skill">Tensorflow</span>
+                <span class="skill">Pytorch</span>
+                <span class="skill">Scikit-learn</span>
+                <span class="skill">Numpy</span>
+                <span class="skill">Pandas</span>
+                <span class="skill">Flask</span>
+                <span class="skill">Keras</span>
+                <span class="skill">OpenCV</span>
+                <span class="skill">Hugging Face Transformers</span>
+            </div>
+            <div class="skills">
+                <h3>Technologies</h3>
+                <span class="skill">Machine Learning</span>
+                <span class="skill">Deep Learning</span>
+                <span class="skill">LLMs</span>
+                <span class="skill">Generative AI</span>
+                <span class="skill">Natural Language Processing</span>
+                <span class="skill">Computer Vision</span>
+                <span class="skill">Neural Networks</span>
+                <span class="skill">Large Language Models</span>
+                <span class="skill">Recommendation Systems</span>
+                <span class="skill">MySQL</span>
+                <span class="skill">Flask</span>
+                <span class="skill">Streamlit</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>TGSRTC Bus Prediction</h3>
+                    <p>Comparing various Machine Learning models to predict whether a student can reach college in time or not by travelling in RTC bus.</p>
+                    <a href="https://github.com/AICraftAlchemy/TSRTC-Bus-Prediction" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="project-card">
+                    <h3>Surgeon Action Detection</h3>
+                    <p>Detecting the actions performed by the surgeon using various Deep learning models.</p>
+                    <a href="https://github.com/AICraftAlchemy/SARAS-ESAD-Baseline" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="project-card">
+                    <h3>Plant Care Detection and Cure</h3>
+                    <p>Utilizes advanced deep learning for precise plant disease classification and actionable treatment recommendations.</p>
+                    <a href="https://github.com/AICraftAlchemy/PlantCare-Detect-and-Cure" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="project-card">
+                    <h3>Restaurant-Reviews-Ratings</h3>
+                    <p>Predicts restaurant review ratings using advanced NLP and the BERT model to analyze sentiment and context.</p>
+                    <a href="https://github.com/AICraftAlchemy/Restaurent-Reviews-Ratings" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="project-card">
+                    <h3>Cold Email Generator</h3>
+                    <p>Uses Streamlit and ChatGroq to generate personalized cold emails for job applications based on job postings.</p>
+                    <a href="https://github.com/AICraftAlchemy/cold-mail-generator" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="project-card">
+                    <h3>AI-Powered Chatbot</h3>
+                    <p>Developed an intelligent chatbot using natural language processing techniques for customer support automation.</p>
+                    <a href="#" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="project-card">
+                    <h3>Image Classification Model</h3>
+                    <p>Built and trained a convolutional neural network for accurate image classification across multiple categories.</p>
+                    <a href="#" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="project-card">
+                    <h3>Predictive Maintenance System</h3>
+                    <p>Implemented a machine learning model to predict equipment failures and optimize maintenance schedules.</p>
+                    <a href="#" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="project-card">
+                    <h3>Sentiment Analysis Tool</h3>
+                    <p>Created a sentiment analysis tool using NLP techniques to analyze customer feedback and social media posts.</p>
+                    <a href="#" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="project-card">
+                    <h3>Recommendation Engine</h3>
+                    <p>Developed a collaborative filtering-based recommendation system for personalized product suggestions.</p>
+                    <a href="#" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>AI and ML Internship</h3>
+                <p><i class="far fa-calendar-alt"></i> 20/7/2022 - 9/12/2022</p>
+                <p>Successfully completed industry-based training along with internship in AI and ML.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>Bachelor of Computer Science (AIML)</h3>
+                <p>Geethanjali College of Engineering and Technology</p>
+                <p><i class="far fa-calendar-alt"></i> 2020-2024</p>
+                <p><i class="fas fa-graduation-cap"></i> CGPA: 7.0</p>
+            </div>
+            <div class="education-item">
+                <h3>Intermediate</h3>
+                <p>Narayana Junior College</p>
+                <p><i class="far fa-calendar-alt"></i> 2018-2020</p>
+                <p><i class="fas fa-percentage"></i> Percentage: 70</p>
+            </div>
+            <div class="education-item">
+                <h3>ICSE</h3>
+                <p>Hyderabad Public School</p>
+                <p><i class="far fa-calendar-alt"></i> 2018</p>
+                <p><i class="fas fa-percentage"></i> Percentage: 61</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Extra-Curricular Activities</h2>
+            <ul class="extra-activities">
+                <li>NCC 'A' Certificate</li>
+                <li>Volleyball IPSC</li>
+                <li>Volleyball SF</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 LOKESH E. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Background animation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '5px';
+            particle.style.height = '5px';
+            particle.style.background = `hsl(${Math.random() * 360}, 50%, 50%)`;
+            particle.style.borderRadius = '50%';
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.opacity = '0';
+            particle.style.animation = `float 5s ease-in-out infinite, fade 5s ease-in-out infinite`;
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+
+            document.getElementById('backgroundAnimation').appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 5000);
+        }
+
+        setInterval(createParticle, 200);
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation to skills
+        const skills = document.querySelectorAll('.skill');
+        skills.forEach((skill, index) => {
+            skill.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1}s`;
+        });
+
+        // Add animation to sections
+        const sections = document.querySelectorAll('section');
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.5s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Add animation to project cards
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach((card, index) => {
+            card.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1}s`;
+        });
+
+        // Add 3D tilt effect to project cards
+        projectCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+
+        // Add animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(40px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes float {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-20px); }
+            }
+            @keyframes fade {
+                0%, 100% { opacity: 0; }
+                50% { opacity: 0.5; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
