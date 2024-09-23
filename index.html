@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOKESH E - AI & ML Engineer Portfolio</title>
+    <title>LOKESH E - Innovative AI & ML Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -115,8 +115,7 @@
             padding: 2rem 0;
         }
         section {
-            flex: 1 1 calc(50% - 1rem);
-            min-width: 300px;
+            flex: 1 1 100%;
             background: var(--card-bg);
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -199,7 +198,7 @@
         }
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
         .project-card {
@@ -212,6 +211,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            height: 100%;
         }
         .project-card:hover {
             transform: translateY(-5px) rotateY(5deg);
@@ -300,9 +300,86 @@
             main {
                 flex-direction: column;
             }
-            section {
-                flex: 1 1 100%;
-            }
+        }
+        .skill-category {
+            margin-bottom: 1rem;
+        }
+        .skill-category h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: var(--bg-color);
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .left {
+            left: 0;
+        }
+        .right {
+            left: 50%;
+        }
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid var(--primary-color);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--primary-color);
+        }
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid var(--primary-color);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--primary-color) transparent transparent;
+        }
+        .right::after {
+            left: -16px;
+        }
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--card-bg);
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -313,12 +390,12 @@
         <div class="container header-content">
             <div class="profile-info">
                 <h1>LOKESH E</h1>
-                <p class="tagline">Aspiring Machine Learning and Deep Learning Engineer</p>
+                <p class="tagline">Innovative AI & ML Engineer | Transforming Ideas into Intelligent Solutions</p>
                 <div class="contact-info">
                     <a href="mailto:lokeshe0912@gmail.com"><i class="fas fa-envelope"></i> Email</a>
                     <a href="tel:7661081043"><i class="fas fa-phone"></i> Call</a>
                     <a href="https://www.linkedin.com/in/lokesh-e-60a583201" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://aicraftalchemy.github.io" target="_blank"><i class="fas fa-globe"></i>Website</a>
+                    <a href="https://aicraftalchemy.github.io" target="_blank"><i class="fas fa-globe"></i> Portfolio</a>
                 </div>
             </div>
             <img src="static/LokeshE.jpg" alt="Lokesh E" class="profile-image">
@@ -326,153 +403,151 @@
     </header>
 
     <main class="container">
-        <section>
-            <h2>Objective</h2>
-            <p>Eager to showcase and apply advanced AI skills in Machine Learning and Deep Learning. Seeking a dynamic platform to drive innovative solutions and make an impactful contribution.</p>
+        <section id="expertise">
+            <h2>AI Expertise</h2>
+            <p>As a passionate AI and Machine Learning engineer, I specialize in developing cutting-edge solutions that push the boundaries of technology. My expertise spans deep learning, natural language processing, and computer vision, allowing me to tackle complex problems and drive innovation in various domains.</p>
         </section>
 
-        <section>
-            <h2>Skills</h2>
-            <div class="skills">
-                <h3>Languages</h3>
-                <span class="skill">Python</span>
-                <span class="skill">Java</span>
-                <span class="skill">C</span>
+        <section id="skills">
+            <h2>Technical Arsenal</h2>
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skills">
+                    <span class="skill">Python</span>
+                    <span class="skill">Java</span>
+                    <span class="skill">C</span>
+                </div>
             </div>
-            <div class="skills">
-                <h3>Frameworks</h3>
-                <span class="skill">Tensorflow</span>
-                <span class="skill">Pytorch</span>
-                <span class="skill">Scikit-learn</span>
-                <span class="skill">Numpy</span>
-                <span class="skill">Pandas</span>
-                <span class="skill">Flask</span>
-                <span class="skill">Keras</span>
-                <span class="skill">OpenCV</span>
-                <span class="skill">Hugging Face Transformers</span>
+            <div class="skill-category">
+                <h3>AI & ML Frameworks</h3>
+                <div class="skills">
+                    <span class="skill">TensorFlow</span>
+                    <span class="skill">PyTorch</span>
+                    <span class="skill">Scikit-learn</span>
+                    <span class="skill">Keras</span>
+                    <span class="skill">Hugging Face Transformers</span>
+                </div>
             </div>
-            <div class="skills">
-                <h3>Technologies</h3>
-                <span class="skill">Machine Learning</span>
-                <span class="skill">Deep Learning</span>
-                <span class="skill">LLMs</span>
-                <span class="skill">Generative AI</span>
-                <span class="skill">Natural Language Processing</span>
-                <span class="skill">Computer Vision</span>
-                <span class="skill">Neural Networks</span>
-                <span class="skill">Large Language Models</span>
-                <span class="skill">Recommendation Systems</span>
-                <span class="skill">MySQL</span>
-                <span class="skill">Flask</span>
-                <span class="skill">Streamlit</span>
+            <div class="skill-category">
+                <h3>Data Processing & Visualization</h3>
+                <div class="skills">
+                    <span class="skill">NumPy</span>
+                    <span class="skill">Pandas</span>
+                    <span class="skill">Matplotlib</span>
+                    <span class="skill">Seaborn</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Specialized AI Domains</h3>
+                <div class="skills">
+                    <span class="skill">Natural Language Processing</span>
+                    <span class="skill">Computer Vision</span>
+                    <span class="skill">Deep Learning</span>
+                    <span class="skill">Machine Learning</span>
+                    <span class="skill">Large Language Models (LLMs)</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3>
+                <div class="skills">
+                    <span class="skill">Git</span>
+                    <span class="skill">Docker</span>
+                    <span class="skill">Flask</span>
+                    <span class="skill">Streamlit</span>
+                    <span class="skill">MySQL</span>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h2>Projects</h2>
+        <section id="projects">
+            <h2>Innovative Projects</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <h3>TGSRTC Bus Prediction</h3>
-                    <p>Comparing various Machine Learning models to predict whether a student can reach college in time or not by travelling in RTC bus.</p>
-                    <a href="https://github.com/AICraftAlchemy/TSRTC-Bus-Prediction" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                    <h3>TGSRTC Bus Prediction System</h3>
+                    <p>Engineered a machine learning model to predict student arrival times using RTC bus data, significantly improving transportation efficiency and student punctuality.</p>
+                    <a href="https://github.com/AICraftAlchemy/TSRTC-Bus-Prediction" target="_blank">Explore Project <i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <div class="project-card">
-                    <h3>Surgeon Action Detection</h3>
-                    <p>Detecting the actions performed by the surgeon using various Deep learning models.</p>
-                    <a href="https://github.com/AICraftAlchemy/SARAS-ESAD-Baseline" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                    <h3>AI-Powered Surgeon Action Detection</h3>
+                    <p>Implemented state-of-the-art deep learning models to accurately detect and classify surgeon actions in real-time, enhancing medical procedure analysis and training.</p>
+                    <a href="https://github.com/AICraftAlchemy/SARAS-ESAD-Baseline" target="_blank">View Details <i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <div class="project-card">
-                    <h3>Plant Care Detection and Cure</h3>
-                    <p>Utilizes advanced deep learning for precise plant disease classification and actionable treatment recommendations.</p>
-                    <a href="https://github.com/AICraftAlchemy/PlantCare-Detect-and-Cure" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                    <h3>Intelligent Plant Care System</h3>
+                    <p>Developed an AI-driven system for precise plant disease classification and treatment recommendations, revolutionizing agricultural practices and crop management.</p>
+                    <a href="https://github.com/AICraftAlchemy/PlantCare-Detect-and-Cure" target="_blank">Discover More <i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <div class="project-card">
-                    <h3>Restaurant-Reviews-Ratings</h3>
-                    <p>Predicts restaurant review ratings using advanced NLP and the BERT model to analyze sentiment and context.</p>
-                    <a href="https://github.com/AICraftAlchemy/Restaurent-Reviews-Ratings" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                    <h3>Advanced Restaurant Review Analyzer</h3>
+                    <p>Created a sophisticated NLP-based system using BERT to analyze restaurant reviews and predict ratings, providing valuable insights for both customers and businesses.</p>
+                    <a href="https://github.com/AICraftAlchemy/Restaurent-Reviews-Ratings" target="_blank">See Project <i class="fas fa-external-link-alt"></i></a>
                 </div>
                 <div class="project-card">
-                    <h3>Cold Email Generator</h3>
-                    <p>Uses Streamlit and ChatGroq to generate personalized cold emails for job applications based on job postings.</p>
-                    <a href="https://github.com/AICraftAlchemy/cold-mail-generator" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                </div>
-                <div class="project-card">
-                    <h3>AI-Powered Chatbot</h3>
-                    <p>Developed an intelligent chatbot using natural language processing techniques for customer support automation.</p>
-                    <a href="#" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                </div>
-                <div class="project-card">
-                    <h3>Image Classification Model</h3>
-                    <p>Built and trained a convolutional neural network for accurate image classification across multiple categories.</p>
-                    <a href="#" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                </div>
-                <div class="project-card">
-                    <h3>Predictive Maintenance System</h3>
-                    <p>Implemented a machine learning model to predict equipment failures and optimize maintenance schedules.</p>
-                    <a href="#" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                </div>
-                <div class="project-card">
-                    <h3>Sentiment Analysis Tool</h3>
-                    <p>Created a sentiment analysis tool using NLP techniques to analyze customer feedback and social media posts.</p>
-                    <a href="#" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                </div>
-                <div class="project-card">
-                    <h3>Recommendation Engine</h3>
-                    <p>Developed a collaborative filtering-based recommendation system for personalized product suggestions.</p>
-                    <a href="#" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                    <h3>AI-Powered Cold Email Generator</h3>
+                    <p>Engineered an innovative Streamlit-based application leveraging ChatGroq to generate personalized and compelling cold emails for job applications, streamlining the job search process.</p>
+                    <a href="https://github.com/AICraftAlchemy/cold-mail-generator" target="_blank">Learn More <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h2>Experience</h2>
-            <div class="experience-item">
-                <h3>AI and ML Internship</h3>
-                <p><i class="far fa-calendar-alt"></i> 20/7/2022 - 9/12/2022</p>
-                <p>Successfully completed industry-based training along with internship in AI and ML.</p>
+        <section id="experience">
+            <h2>Professional Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>AI and ML Research Intern</h3>
+                        <p><i class="far fa-calendar-alt"></i> July 20, 2022 - December 9, 2022</p>
+                        <p>Conducted cutting-edge research and development in AI and ML, contributing to industry-based projects and gaining hands-on experience with state-of-the-art technologies.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h2>Education</h2>
-            <div class="education-item">
-                <h3>Bachelor of Computer Science (AIML)</h3>
-                <p>Geethanjali College of Engineering and Technology</p>
-                <p><i class="far fa-calendar-alt"></i> 2020-2024</p>
-                <p><i class="fas fa-graduation-cap"></i> CGPA: 7.0</p>
-            </div>
-            <div class="education-item">
-                <h3>Intermediate</h3>
-                <p>Narayana Junior College</p>
-                <p><i class="far fa-calendar-alt"></i> 2018-2020</p>
-                <p><i class="fas fa-percentage"></i> Percentage: 70</p>
-            </div>
-            <div class="education-item">
-                <h3>ICSE</h3>
-                <p>Hyderabad Public School</p>
-                <p><i class="far fa-calendar-alt"></i> 2018</p>
-                <p><i class="fas fa-percentage"></i> Percentage: 61</p>
+        <section id="education">
+            <h2>Educational Background</h2>
+            <div class="timeline">
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Bachelor of Computer Science (AI & ML Specialization)</h3>
+                        <p>Geethanjali College of Engineering and Technology</p>
+                        <p><i class="far fa-calendar-alt"></i> 2020 - 2024</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Intermediate Education<(MPC)/h3>
+                        <p>Narayana Junior College</p>
+                        <p><i class="far fa-calendar-alt"></i> 2018 - 2020</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>ICSE</h3>
+                        <p>Hyderabad Public School</p>
+                        <p><i class="far fa-calendar-alt"></i>2008-2018</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h2>Extra-Curricular Activities</h2>
+        <section id="achievements">
+            <h2>Leadership & Extracurricular Achievements</h2>
             <ul class="extra-activities">
-                <li>NCC 'A' Certificate</li>
-                <li>Volleyball IPSC</li>
-                <li>Volleyball SF</li>
+                <li>NCC 'A' Certificate Holder - Demonstrating leadership, discipline, and national service</li>
+                <li>Volleyball IPSC Participant - Showcasing teamwork, strategy, and competitive spirit at the inter-school level</li>
+                <li>Volleyball SF Competitor - Exhibiting dedication, athletic prowess, and sportsmanship in high-level competitions</li>
             </ul>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 LOKESH E. All rights reserved.</p>
+            <p>&copy; 2024 LOKESH E | Innovative AI & ML Engineer | Transforming the Future with Intelligent Solutions</p>
         </div>
     </footer>
 
     <script>
-        // Background animation
+        // Enhanced Background Animation
         function createParticle() {
             const particle = document.createElement('div');
             particle.style.position = 'absolute';
@@ -495,7 +570,7 @@
 
         setInterval(createParticle, 200);
 
-        // Add smooth scrolling
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -505,13 +580,13 @@
             });
         });
 
-        // Add animation to skills
+        // Skill Animation
         const skills = document.querySelectorAll('.skill');
         skills.forEach((skill, index) => {
             skill.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1}s`;
         });
 
-        // Add animation to sections
+        // Section Animation
         const sections = document.querySelectorAll('section');
         const observerOptions = {
             threshold: 0.1
@@ -529,13 +604,13 @@
             observer.observe(section);
         });
 
-        // Add animation to project cards
+        // Project Card Animation
         const projectCards = document.querySelectorAll('.project-card');
         projectCards.forEach((card, index) => {
             card.style.animation = `fadeIn 0.5s ease forwards ${index * 0.1}s`;
         });
 
-        // Add 3D tilt effect to project cards
+        // 3D Tilt Effect for Project Cards
         projectCards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
@@ -556,7 +631,7 @@
             });
         });
 
-        // Add animation keyframes
+        // Animation Keyframes
         const style = document.createElement('style');
         style.textContent = `
             @keyframes fadeIn {
