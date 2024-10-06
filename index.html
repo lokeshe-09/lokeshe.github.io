@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         :root {
             --primary-color: #4a90e2;
@@ -419,7 +420,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
-            margin-top: 2rem;
         }
         .expertise-item {
             background: var(--card-bg);
@@ -429,7 +429,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: var(--transition);
         }
-        .expertise-item: hover {
+        .expertise-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
@@ -447,11 +447,20 @@
             font-size: 0.9rem;
             color: var(--text-color);
         }
+        #neural-network-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
     </style>
 </head>
 <body>
     <header>
         <div id="particles-js"></div>
+        <canvas id="neural-network-canvas"></canvas>
         <div class="container header-content">
             <div class="profile-info">
                 <h1>LOKESH E</h1>
@@ -461,7 +470,8 @@
                     <a href="tel:7661081043"><i class="fas fa-phone"></i> Call</a>
                     <a href="https://www.linkedin.com/in/lokesh-e-60a583201" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                     <a href="https://github.com/AICraftAlchemy" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://aicraftalchemy.github.io" target="_blank"><i class="fas fa-globe"></i> website</a>
+                    <a href="https://aicraftalchemy.github.io" target="_blank"><i class="fas fa-globe"></i> Website</a>
+                    <a href="static/Lokesh_E_CV.pdf" download="Lokesh_E_CV.pdf" target="_blank" class="download-resume"><i class="fas fa-file-pdf"></i> Download Resume</a>
                 </div>
             </div>
             <div class="profile-image-container">
@@ -876,6 +886,84 @@
         }
 
         setTimeout(typeWriter, 1500);
+
+        // Neural Network Animation
+        const canvas = document.getElementById('neural-network-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const nodes = [];
+        const connections = [];
+
+        class Node {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.radius = 5;
+                this.color = '#4a90e2';
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        class Connection {
+            constructor(start, end) {
+                this.start = start;
+                this.end = end;
+                this.color = 'rgba(74, 144, 226, 0.2)';
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.moveTo(this.start.x, this.start.y);
+                ctx.lineTo(this.end.x, this.end.y);
+                ctx.strokeStyle = this.color;
+                ctx.stroke();
+            }
+        }
+
+        function createNodes() {
+            const numNodes = 50;
+            for (let i = 0; i < numNodes; i++) {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                nodes.push(new Node(x, y));
+            }
+        }
+
+        function createConnections() {
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    if (Math.random() < 0.1) {
+                        connections.push(new Connection(nodes[i], nodes[j]));
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            connections.forEach(connection => connection.draw());
+            nodes.forEach(node => node.draw());
+
+            requestAnimationFrame(animate);
+        }
+
+        createNodes();
+        createConnections();
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
     </script>
 </body>
 </html>
